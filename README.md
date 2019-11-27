@@ -41,6 +41,21 @@ Win7安装Bitvise SSH Client或其他SSH客户端
 ### 2019.11.23 - 5.vi
 vi，Linux经典编辑器  
 在/home/用户下，基于vi创建文件test，编写C语言主函数打印输出hello world  
+```
+vi test
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{   
+    printf("Hello world of docker!\n");
+    return 0;
+}
+
+`esc` + `:w` +`:q`
+
+```
 掌握最基本的操作指令，编辑模式/删除整行/保存退出/不保存退出  
 在/home/用户下，创建名为code的目录，将文件重命名为hello.c；移动到code目录。即，学习掌握基本的重命名/移动命令
 
