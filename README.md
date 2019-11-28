@@ -67,10 +67,9 @@ Shell？bash？cat？了解脚本的：基本结构，支持的语句，执行li
 需要添加脚本文件的执行权限，运行  
 基于cat读取显式脚本代码  
 
-带权限的列出文件
+带权限的列出文件  
 chmod命令，r/w/x？3组权限？u/g/o？增加/修改/删除指定角色的指定权限。使用语义参数比数字好记  
-为以上脚本文件，添加创建者具有读写执行权限命令？取消其他用户的读权限？  
-权限角色，u，所有者；g，组；o，其他人  
+为以上脚本文件，添加创建者具有读写执行权限命令？取消其他用户的读权限？   
 
 ### 2019.11.26 - 9.Docker
 可以把安装的gcc/openjdk等等都卸载了  
@@ -87,7 +86,7 @@ https://docs.docker.com/
 
 ### 2019.11.26 - 10.Docker Images
 docker官方镜像仓库国内速度慢，基于vi修改配置文件，
-使用微软Azure仓库https://dockerhub.azk8s.cn，我这拉取500MB镜像1分钟。基本满速。服务器在国外的不要配。其他仓库要么需要密钥，要么已作废  
+使用微软Azure仓库[https://dockerhub.azk8s.cn](https://dockerhub.azk8s.cn)，我这拉取500MB镜像1分钟。基本满速。服务器在国外的不要配。其他仓库要么需要密钥，要么已作废  
 重新加载配置，重启docker  
 
 Docker基本命令：拉取镜像；列出本地镜像；删除镜像；不建议在本地查询，去官方网站查询更方便  
@@ -143,6 +142,20 @@ https://github.com/firewalld/firewalld/issues/461
 注意，服务器的一个端口只能被一个应用/容器监听，反复创建容器会端口冲突  
 
 ### 2019.11.26 - 12.Dockerfile
+https://docs.docker.com/develop/develop-images/dockerfile_best-practices/  
+https://yeasy.gitbooks.io/docker_practice/image/dockerfile/  
+理解docker image layers的设计。优点？  
+按官方文档，掌握最基本的FROM RUN CMD COPY ADD指令。每执行一条指令意味着什么？COPY与ADD的区别？  
+在/home/用户名/services/dockers-tomcat/下，编写一个Dockerfile，
+基于tomcat镜像，将docker-examples.war文件复制到部署路径下。注意，copy指令，只能指定相对于dockerfile的相对路径，不能使用基于根的绝对路径  
+是否需要声明暴露端口？理解layer  
+
+基于文件构建镜像，声明repository仓库名称，注意结尾标识符。repository的官方命名标准？  
+查看镜像是否构建。查看镜像信息？  
+基于自定义构建的镜像创建容器。与之前的创建命令相比，需要什么参数？  
+先学习基本镜像构建。其他指令，构建过程优化，后期讨论。不讨论基于容器的镜像构建  
+
+### 2019.11.26 - 13.Docker compose
 Orchestration System？为什么需要Docker Compose？优点？k8s(Kubernetes)？k8s与官方docker compose的适用场景？编写docker-compose文件的最大最大特点？  
 https://docs.docker.com/compose/  
 按官网教程安装最新版，添加执行权限  
