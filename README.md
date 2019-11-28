@@ -125,7 +125,7 @@ firewall规则为动态添加，改变规则后需重载，无需重启
 
 查看一个服务的状态。一个服务的启动/停止/启动/禁用。基于firewalld操作
 
-### 2019.11.26 - 12.Docker Web Container
+### 2019.11.26 - 13.Docker Web Container
 在宿主机，通过scp命令将本地文件上传到服务器。注意，虚拟机网络为NAT模式，需显式声明ssh映射的端口，但参数与ssh命令不同  
 创建目录，/home/用户名/services/。services下按应用创建目录  
 将/github/resources/docker-examples.war文件下载到本地，再上传到/home/用户名/services/docker-tomcat/。目录需先创建  
@@ -141,7 +141,7 @@ https://github.com/firewalld/firewalld/issues/461
 停止，并删除此容器。命令写在一行执行  
 注意，服务器的一个端口只能被一个应用/容器监听，反复创建容器会端口冲突  
 
-### 2019.11.26 - 12.Dockerfile
+### 2019.11.26 - 14.Dockerfile
 https://docs.docker.com/develop/develop-images/dockerfile_best-practices/  
 https://yeasy.gitbooks.io/docker_practice/image/dockerfile/  
 理解docker image layers的设计。优点？  
@@ -155,7 +155,7 @@ https://yeasy.gitbooks.io/docker_practice/image/dockerfile/
 基于自定义构建的镜像创建容器。与之前的创建命令相比，需要什么参数？  
 先学习基本镜像构建。其他指令，构建过程优化，后期讨论。不讨论基于容器的镜像构建  
 
-### 2019.11.26 - 13.Docker compose
+### 2019.11.26 - 15.Docker compose
 Orchestration System？为什么需要Docker Compose？优点？k8s(Kubernetes)？k8s与官方docker compose的适用场景？编写docker-compose文件的最大最大特点？  
 https://docs.docker.com/compose/  
 按官网教程安装最新版，添加执行权限  
