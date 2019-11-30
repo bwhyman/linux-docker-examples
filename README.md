@@ -61,7 +61,11 @@ gcc安装到哪了？列出安装gcc的位置，各位置的作用，为什么�
 了解根目录下的，主要目录的功能  
 bin/; dev/; mnt/; etc/; opt/; usr/; lib/; home/; /usr/bin/; /usr/lib/; /usr/libexec/;
 
-### 2019.11.26 - 8.bash & chmod
+### 2019.11.30 - 8.Mount
+插入一个fat32/ntfs格式U盘，exfat默认不支持  
+设置虚拟机识别读取。基本命令：列出所有指定格式磁盘；挂载设备，浏览设备内文件；取消挂载  
+
+### 2019.11.26 - 9.bash & chmod
 Shell？bash？cat？了解脚本的：基本结构，支持的语句，执行linux命令，运行即可  
 在/home/用户名/test下，基于vi编写一个由bash执行的，打印出/home/用户名/test/下所有文件的脚本  
 需要添加脚本文件的执行权限，运行  
@@ -71,7 +75,7 @@ Shell？bash？cat？了解脚本的：基本结构，支持的语句，执行li
 chmod命令，r/w/x？3组权限？u/g/o？增加/修改/删除指定角色的指定权限。使用语义参数比数字好记  
 为以上脚本文件，添加创建者具有读写执行权限命令？取消其他用户的读权限？   
 
-### 2019.11.26 - 9.Docker
+### 2019.11.26 - 10.Docker
 可以把安装的gcc/openjdk等等都卸载了  
 https://docs.docker.com/engine/docker-overview/  
 https://geekflare.com/docker-vs-virtual-machine/  
@@ -84,7 +88,7 @@ https://docs.docker.com/
 安装基本工具；添加docker官方仓库，下载docker-ce本身的仓库使用官方地址即可，速度很快。无需指定版本，安装最新版docker-ce  
 启动docker。开机自动启动docker服务
 
-### 2019.11.26 - 10.Docker Images
+### 2019.11.26 - 11.Docker Images
 docker官方镜像仓库国内速度慢，基于vi修改配置文件，
 使用微软Azure仓库[https://dockerhub.azk8s.cn](https://dockerhub.azk8s.cn)，我这拉取500MB镜像1分钟。基本满速。服务器在国外的不要配。其他仓库要么需要密钥，要么已作废  
 重新加载配置，重启docker  
@@ -94,7 +98,7 @@ Docker基本命令：拉取镜像；列出本地镜像；删除镜像；不建�
 如果出现Error response from daemon，说明centos DNS域名解析错误，修改系统DNS解析地址为Google的域名服务器  
 Docker仓库？docker镜像仓库？
 
-### 2019.11.26 - 11.Docker Container
+### 2019.11.26 - 12.Docker Container
 #### Docker run
 Docker命令：基于指定镜像创建容器；列出全部已创建的容器；停止运行容器；删除容器。容器ID使用hash值的前2位即可  
 run基本参数：-p；-v；-d；-i；-t；--rm    
@@ -117,18 +121,18 @@ exec基本参数：-i；-t。结合/bin/bash使用
 在容器内进入挂载目录，运行HelloWorld，查看输出  
 查看容器内系统版本？查看镜像/容器信息？查看镜像/容器占用？
 
-### 2019.11.26 - 12.FirewallD & Services
+### 2019.11.26 - 13.FirewallD & SystemD
 CentOS集成的firewall工具。ports？firewall zone？使用默认的zone-public无需声明  
 列出firewall所有打开服务与端口等信息，这一个命令就够所有查询了  
 防火墙重载；永久开启http服务；永久打开80端口；永久关闭服务；永久关闭端口  
-firewall规则为动态添加，改变规则后需重载，无需重启    
+firewall规则为动态添加，改变规则后需重载，无需重启  
 
-查看一个服务的状态。一个服务的启动/停止/启动/禁用。基于firewalld操作
+SystemD？基本命令：列出开机启动服务；查看指定服务状态；启动/停止/重启/开机启动/开机禁用/服务。基于firewalld或docker操作  
 
-### 2019.11.26 - 13.Docker Web Container
+### 2019.11.26 - 14.Docker Web Container
 在宿主机，通过scp命令将本地文件上传到服务器。注意，虚拟机网络为NAT模式，需显式声明ssh映射的端口，但参数与ssh命令不同  
 创建目录，/home/用户名/services/。services下按应用创建目录  
-将/github/resources/docker-examples.war文件下载到本地，再上传到/home/用户名/services/docker-tomcat/。目录需先创建  
+将resources/docker-examples.war文件下载到本地，再上传到/home/用户名/services/docker-tomcat/。目录需先创建  
 
 拉取最新tomcat镜像。默认暴露的端口？部署路径？集成的openjdk版本？查看镜像信息？  
 基于命令行创建一个容器：映射服务器80端口到容器的8080端口；挂载docker-examples.war所在目录到容器中的部署目录；后台运行  
@@ -141,7 +145,7 @@ https://github.com/firewalld/firewalld/issues/461
 停止，并删除此容器。命令写在一行执行  
 注意，服务器的一个端口只能被一个应用/容器监听，反复创建容器会端口冲突  
 
-### 2019.11.26 - 14.Dockerfile
+### 2019.11.26 - 15.Dockerfile
 https://docs.docker.com/develop/develop-images/dockerfile_best-practices/  
 https://yeasy.gitbooks.io/docker_practice/image/dockerfile/  
 理解docker image layers的设计。优点？  
@@ -155,7 +159,7 @@ https://yeasy.gitbooks.io/docker_practice/image/dockerfile/
 基于自定义构建的镜像创建容器。与之前的创建命令相比，需要什么参数？  
 先学习基本镜像构建。其他指令，构建过程优化，后期讨论。不讨论基于容器的镜像构建  
 
-### 2019.11.26 - 15.Docker compose
+### 2019.11.26 - 16.Docker compose
 Orchestration System？为什么需要Docker Compose？优点？k8s(Kubernetes)？k8s与官方docker compose的适用场景？编写docker-compose文件的最大最大特点？  
 https://docs.docker.com/compose/  
 按官网教程安装最新版，添加执行权限  
