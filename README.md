@@ -7,27 +7,67 @@ https://opsx.alibaba.com/mirror
 在虚拟机的光驱，引入下载的CentOS镜像  
 鉴于需登录的校园网络特点，网络模式使用默认的NAT模式  
 桥接，默认的网络地址转换(NAT)的区别？  
+```angular2
+桥接模式下宿主机和虚拟机本质上是两台电脑,ip,网络不共享
+而在NAT模式下宿主机和虚拟机在网络上是共享的,也就是虚拟机没有
+独立的网络层
+所以在桥接模式下虚拟机需要连接手机热点才能上网
+```
 从虚拟机切出鼠标/键盘的控制的快捷键？
+```angular2
+Right Control(键盘右边的control键)
+```
 
 ### 2019.11.16 - 2.CentOS
 运行虚拟机，进入centos安装模式  
 打开网络功能，默认的自动分配IP  
 安装位置，无需分区  
 安装minimal版，后续软件包可以再添加  
-安装过程中，设置root账号密码，创建一个普通操作权限的用户/密码  
+安装过程中，设置root账号密码，创建一个普通操作权限的用户/密码
+```angular2
+1.创建用户
+    `adduser username`
+2.设置密码
+    `passwd username`
+3.对user进行sudo授权
+    1.查找sudoers文件
+        `whereis sudoers`
+    2.改变权限
+        `chmod -v u+w /etc/sudoers
+    3.将user添加到sudoers
+        `vi /etc/sudoers`
+        添加内容
+            `admin ALL = (ALL) ALL
+    4.将sudoers文件权限该回去
+        `chmod -v u-w /etc/sudoers
+4.测试user
+    `su admin` 
+```  
 安装时，查找资料了解root/普通用户，Linux系统操作权限管理  
 安装完毕，光驱卸载iso，重启  
 
 初学者可以直接以root账号登录  
 查看网络是否正常，ping通百度  
 停止操作快捷键？自动补全快捷键？
+```angular2
+停止快捷键
+    `ctrl + c`
+自动补全快捷键
+    `Tab`
+```
 
-### 2019.11.16 - 3.SSH
-win10可安装win10自带的OpenSSH客户端。什么是SSH？  
+````### 2019.11.16 - 3.SSH
+win10可安装win10自带的OpenSSH客户端。什么是SSH？ 
+```angular2
+ssh是一种安全协议
+``` 
 Win7安装Bitvise SSH Client或其他SSH客户端  
 在VB网络设置中，创建一个宿主机到虚拟机的ssh端口映射  
 通过控制台，以root登入虚拟机，注意需显式声明端口参数  
 为什么通过ssh连接服务器，而不直接在虚拟机中操作？  
+```angular2
+方便快捷高效
+```
 
 如果能够正确进入服务器，则可以在VB中为虚拟机创建一个系统快照作为基础镜像，
 后续操作出问题，可以回滚到当前版本。当然，直接删了虚拟机重来也很方便  
@@ -38,6 +78,10 @@ Win7安装Bitvise SSH Client或其他SSH客户端
 创建/删除/重命名目录，查看系统版本，系统内核，cpu/内存占用，磁盘占用。要使用自动补全  
 在/home/用户下，练习创建/删除/重命名目录
 
+```
+清屏命令: `clear` 或者是 `ctrl + l`
+创建
+```
 ### 2019.11.23 - 5.vi
 vi，Linux经典编辑器  
 在/home/用户下，基于vi创建文件test，编写主函数打印输出hello world  
