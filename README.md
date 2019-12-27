@@ -151,7 +151,7 @@ https://yeasy.gitbooks.io/docker_practice/image/dockerfile/
 理解docker image layers的设计。优点？  
 按官方文档，掌握最基本的FROM RUN CMD COPY ADD指令。每执行一条指令意味着什么？COPY与ADD的区别？  
 在/home/用户名/services/dockers-tomcat/下，编写一个Dockerfile，
-基于tomcat镜像，将docker-examples.war文件复制到部署路径下。注意，copy指令，只能指定相对于dockerfile的相对路径，不能使用基于根的绝对路径  
+基于tomcat镜像，将docker-examples.war文件复制到部署路径下。注意，dockerfile指令，只能指定相对于dockerfile文件的相对路径，不能使用基于根的绝对路径  
 是否需要声明暴露端口？理解layer  
 
 基于文件构建镜像，声明repository仓库名称，注意结尾标识符。repository的官方命名标准？  
@@ -167,4 +167,34 @@ https://docs.docker.com/compose/
 将14Docker Web Container，基于命令行创建容器的命令，转为在文件中描述，包括tomcat基础镜像，挂载目录，映射端口  
 基于文件创建在后台运行的容器；停止/停止删除基于文件创建的容器  
 查看容器日志，错误时可查看  
-注意，严格的缩进与空格
+注意，严格的缩进与空格  
+
+### 2019.12.08 - 17.Docker Volume
+Docker volume？结合镜像/容器理解  
+查询docker image/container/volume磁盘占用？删除容器时，同时删除关联volume参数？  
+删除已无关联volume的命令  
+即，删除系统中已经存在的，但没有关联的volume。当删除镜像/容器但忘记同时删除关联volume时，volume不会自动删除，会一直占用磁盘空间
+
+### 2019.12.27 - 18.Thinking
+可实现的部署方式包括：  
+ - 基于基础镜像创建一个挂载应用的容器，实现服务的部署
+ - 基于基础镜像添加应用服务层构建新镜像，基于新镜像创建容器，实现服务的部署
+ 
+综合考虑以下维度，在实际生产环境中，使用那种部署方式更适合？  
+ - 交付场景，公司自己开发的项目，自己部署；甲方的项目，需要交付给甲方运维人员部署。怎么交付更方便？
+ - 频繁的业务变更，致使服务更新迭代速度非常快，可能上午刚部署的服务下午就又更新了
+ - 开发/测试/维护，均需要确保服务环境的一致性，变更更频繁
+ - 频繁的部署，必然需要镜像/容器的维护
+# ~放假啦，下学期见~
+### 下期预告
+基于nginx/openjdk/mysql的服务/镜像/容器，由docker-compose统一管理  
+基于docker-compose构建镜像同时创建容器  
+设置环境变量参数等，复杂操作  
+Nginx反向代理/TLS证书等基本设置  
+容器的顺序启动  
+健康检测？就用过1次，也没什么用  
+内核升级  
+等
+
+
+
