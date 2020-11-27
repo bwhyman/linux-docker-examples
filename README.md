@@ -2,7 +2,7 @@
 ### Introduction - 2020.11.17
 专业提供的华为云服务器  
 4vCPUs/8GB/40GB/400GB/5M/CentOS7.6  
-目前开放端口：22/80/8080/3306  
+目前开放端口：22/80/8080/3306/6379  
 如需开放其他端口，直接向教师申请，有统一防火墙控制，仅在系统内打开端口无效
 
 安装Docker时使用华为云仓库替代官网仓库地址  
@@ -10,7 +10,13 @@
 yum-config-manager --add-repo=https://repo.huaweicloud.com/docker-ce/linux/centos/docker-ce.repo
 ```
 docker镜像加速地址，配在daemon.json，仅华为服务器内使用有效
-https://062b7b86640010df0f54c0184fba4f80.mirror.swr.myhuaweicloud.com  
+```json
+{
+  "registry-mirrors": [
+    "https://062b7b86640010df0f54c0184fba4f80.mirror.swr.myhuaweicloud.com"
+  ]
+}
+```
 
 ### Disclaimer
 使用对外公网IP时，必须遵守国家相关法律，对因违法活动产生一切后果由使用者自负，专业不承担任何法律及连带责任
@@ -211,6 +217,30 @@ Nginx反向代理/TLS证书等基本设置
 健康检测？就用过1次，也没什么用  
 内核升级  
 等
+### 2020.11.27 - 19.Continuous Deployment
+#### 基于GitHub Actions的持续部署
+[持续集成/持续交付/持续部署简介 - 视频](https://mooc1-1.chaoxing.com/nodedetailcontroller/visitnodedetail?courseId=208931964&knowledgeId=326897803)
+
+[基于GitHub Actions的持续部署示例 - 视频](https://mooc1-1.chaoxing.com/nodedetailcontroller/visitnodedetail?courseId=208931964&knowledgeId=326897845)
+#### 基于实际开发项目的持续部署案例  
+工作流
+ - 项目基于GitHub Actions工作流实现持续部署
+ - 基于GitHub secrets隐藏账号/密码等敏感数据信息
+ - 基于GitHub CI服务器完成项目服务器端的构建/集成/测试/打包/，构建为相应docker镜像
+ - 登录GitHub Packages仓库，推送Docker镜像，也可推送到华为镜像服务器
+ - 登录华为云部署服务器，基于docker-compose，拉取最新镜像，基于最新应用镜像创建部署容器
+ - 服务器端删除旧镜像/容器
+ - 最终，实现持续更新项目GitHub仓库master分支，最新应用自动持续部署到服务器
+
+部署
+ - 前端服务部署在nginx容器，nginx配置反向代理实现跨域请求
+ - 后端服务部署在openjdk11容器
+ - 数据库部署在MySQL8容器
+ - 3个docker容器通过独立的docker-compose编排管理配置在同一桥接网络实现互交
+ - 独立的编排可避免对其他服务镜像的依赖
+ - 通过配置容器环境变量实现开发/测试/生产环境的隔离
+
+[基于GitHub Actions的持续部署案例 - 视频](https://mooc1-1.chaoxing.com/nodedetailcontroller/visitnodedetail?courseId=208931964&knowledgeId=330626581)
 
 
 
