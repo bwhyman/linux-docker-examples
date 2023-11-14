@@ -1,23 +1,14 @@
 # Linux-Docker Examples
 ### Introduction
 专业提供的华为云服务器  
-4vCPUs/8GB/40GB/400GB/5M/CentOS7.6  
-目前开放端口：22/80/8080/3306/3389/6379/9000/8848/8887/8718/9100/9300  
+4vCPUs/8GB/40GB/400GB/5M/CentOS7.9  
+目前开放端口：22/80/8000-8999/3000-3100/3300-3399  
 如需开放其他端口，直接向教师申请，有统一防火墙控制，仅在系统内打开端口无效
 
-安装Docker时使用华为云仓库替代官网仓库地址  
+安装Docker时，可使用华为云仓库替代官网仓库地址  
 ```shell script
-yum-config-manager --add-repo=https://repo.huaweicloud.com/docker-ce/linux/centos/docker-ce.repo
+yum-config-manager --add-repo=https://mirrors.huaweicloud.com/docker-ce/linux/centos/docker-ce.repo
 ```
-docker镜像加速地址，配在daemon.json，仅华为服务器内使用有效
-```json
-{
-  "registry-mirrors": [
-    "https://062b7b86640010df0f54c0184fba4f80.mirror.swr.myhuaweicloud.com"
-  ]
-}
-```
-
 ### Disclaimer
 使用对外公网IP时，必须遵守国家相关法律，对因违法活动产生一切后果由使用者自负，专业不承担任何法律及连带责任
 
