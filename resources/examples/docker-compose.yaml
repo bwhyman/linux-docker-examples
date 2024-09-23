@@ -1,8 +1,0 @@
-version: '3'
-services:
-  docker-example:
-    image: tomcat:latest
-    volumes:
-      - /home/BO/services/docker-tomcat/:/usr/local/tomcat/webapps/
-    ports:
-      - 80:8080

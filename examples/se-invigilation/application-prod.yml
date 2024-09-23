@@ -1,0 +1,29 @@
+spring:
+  config:
+    import: classpath:application-secret.yml
+  sql:
+    init:
+      mode: always
+  r2dbc:
+    url: 'r2dbcs:mysql://${dhost}/se_invigilation'
+    username: ${dusername}
+    password: ${dpassword}
+    pool:
+      enabled: true
+      max-size: 200
+      initial-size: 1
+
+  codec:
+    max-in-memory-size: 2MB
+
+  jackson:
+    default-property-inclusion: non_null
+
+logging:
+  level:
+    root: warn
+    com:
+      se: info
+  pattern:
+    console: '%-5level %C.%M[%line] - %msg%n'
+

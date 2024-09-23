@@ -1,0 +1,13 @@
+services:
+  public-mysql:
+    restart: always
+    image: mysql:8
+    volumes:
+      - ./data/:/var/lib/mysql/
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_ROOT_PASSWORD: 123456
+    command:
+      --max_connections=2500
+    ports:
+      - 3306:3306

@@ -1,0 +1,16 @@
+server {
+  gzip_static on;
+  gzip_http_version 1.1;
+  listen 80;
+  client_max_body_size 0;
+  proxy_http_version 1.1;
+   location / {
+     add_header Cache-Control "no-cache";
+     root /usr/share/nginx/html;
+     index index.html;
+     try_files $uri $uri/ /index.html;
+  }
+  location /api/ {
+    proxy_pass http://${bhost};
+  }
+}

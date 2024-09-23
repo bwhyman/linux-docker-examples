@@ -1,0 +1,10 @@
+services:
+  docker-example:
+    image: tomcat:10.1.18-jre17
+    volumes:
+      - ./webapps/:/usr/local/tomcat/webapps/
+      - ./logs/:/usr/local/tomcat/logs/
+    environment:
+      TZ: Asia/Shanghai
+    ports:
+      - 80:8080
