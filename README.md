@@ -221,17 +221,27 @@ https://yeasy.gitbooks.io/docker_practice/image/dockerfile/
 
 ### 2024.09.23 - 16.Docker Compose
 
-Orchestration System？为什么需要Docker Compose？优点？k8s(Kubernetes)？k8s与官方docker compose的适用场景？编写docker compose文件的最大最大特点？  
+Orchestration System？为什么需要Docker Compose？优点？k8s(Kubernetes)？k8s与官方docker compose的适用场景？编写docker compose文件的最大最大特点？docker已默认集成docker compose。  
 https://docs.docker.com/reference/compose-file/   
-docker已默认集成docker compose。
 
 每个服务，独立管理维护。  
 每个服务，可以由若干子服务组成。例如，可以有一个独立的mysql服务，也可以有一个由nginx/openjdk/mysql3个子服务组成的应用服务。  
 服务建议置于/home/services/目录下统一管理。  
-创建mysql目录，在win编写docker compose脚本，拉取`mysql:8`镜像；容器数据挂载到宿主机相对目录下./data/；声明时区；声明默认root密码；映射linux宿主机与容器端口。  
-复制到服务器执行。
 
-掌握整合nginx/openjdk/mysql应用docker compose脚本的编写。
+**MySQL**
+
+创建mysql服务目录，在win编写docker compose脚本，拉取`mysql:8`镜像；挂载宿主机相对目录下./data/到容器数据存储区；声明时区；声明默认root密码；映射linux宿主机与容器端口。  
+复制到服务器执行。能通过win宿主机的idea database客户端连接到容器的mysql数据库。
+
+**Tomcat**
+
+idea创建一个基于java:21 + tomcat:10的maven web项目，仅包含测试主页；编译构建打包，获取war文件。
+
+查询支撑java:21 + tomcat:10的tomcat镜像拉取；创建tomcat服务目录及资源目录；编写编排脚本，映射端口，时区，挂载宿主资源目录到容器tomcat默认工作目录。复制脚本/war包运行，宿主机通IP映射端口访问。
+
+**nginx/openjdk/mysql**
+
+编写整合nginx/openjdk/mysql的docker compose脚本。
 
 ### 2019.12.08 - 17.Docker Volume
 
