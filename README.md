@@ -17,6 +17,21 @@ yum-config-manager --add-repo=https://mirrors.huaweicloud.com/docker-ce/linux/ce
 
 使用对外公网IP时，必须遵守国家相关法律，对因违法活动产生一切后果由使用者自负，专业不承担任何法律及连带责任
 
+### 2024.09.24
+
+过程整理，具体内容参考下面详细说明。
+
+安装VirtualBox；  
+安装centos7.9，环境：基础设施服务器；  
+VB网络地址转换(NAT)模式端口映射，例如将宿主机10022端口映射到虚拟机22端口；  
+安装Bitvise SSH客户端，连接虚拟服务器；  
+linux基本命令；  
+安装docker；  
+vi基本命令；  
+修改docker仓库镜像地址； 
+编写docker compose脚本创建容器；  
+注意，删除没用的镜像；删容器加`-v`删除卷；脚本创建的容器用脚本命令删，否则自动创建的网络等资源不会删除；
+
 ### 2020.12.31
 
 昨天有服务器被入侵并植入木马。
@@ -41,7 +56,7 @@ https://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/
 运行虚拟机，进入centos安装模式  
 打开网络功能，默认的自动分配IP  
 安装位置，无需分区  
-安装minimal版，后续软件包可以再添加  
+安装基础服务器版，后续软件包可以再添加  
 安装过程中，设置root账号密码，创建一个普通操作权限的用户/密码  
 安装时，查找资料了解root/普通用户，Linux系统操作权限管理  
 安装完毕，光驱卸载iso，重启  
@@ -52,10 +67,8 @@ https://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/
 
 ### 2019.11.16 - 3.SSH
 
-win10可安装win10自带的OpenSSH客户端。什么是SSH？  
-Win7安装Bitvise SSH Client或其他SSH客户端  
+可安装Bitvise SSH Client或其他SSH客户端  
 在VB网络设置中，创建一个宿主机到虚拟机的ssh端口映射  
-通过控制台，以root登入虚拟机，注意需显式声明端口参数  
 为什么通过ssh连接服务器，而不直接在虚拟机中操作？  
 
 如果能够正确进入服务器，则可以在VB中为虚拟机创建一个系统快照作为基础镜像，
@@ -241,7 +254,8 @@ idea创建一个基于java:21 + tomcat:10的maven web项目，仅包含测试主
 
 **nginx/openjdk/mysql**
 
-编写整合nginx/openjdk/mysql的docker compose脚本。
+编写整合nginx/openjdk/mysql的docker compose脚本。  
+重新创建脚本中指定服务的容器。
 
 ### 2019.12.08 - 17.Docker Volume
 
