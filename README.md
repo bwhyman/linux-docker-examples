@@ -47,8 +47,8 @@ redis应为沙盒使用模式，即服务器内部使用，不应对外暴露端
 https://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/  
 下载CentOS-7-x86_64-DVD-2207-02.iso  
 在虚拟机的光驱，引入下载的CentOS镜像  
-**鉴于需登录的校园网络特点，网络模式使用默认的NAT模式**  
-桥接，默认的网络地址转换(NAT)的区别？  
+**鉴于需登录的校园网络特点，网络模式使用默认网络地址转换(NAT)模式**  
+桥接，NAT的区别？  
 从虚拟机切出鼠标/键盘的控制的快捷键？
 
 ### 2019.11.16 - 2.CentOS
@@ -251,6 +251,15 @@ https://docs.docker.com/reference/compose-file/
 idea创建一个基于java:21 + tomcat:10的maven web项目，仅包含测试主页；编译构建打包，获取war文件。
 
 查询支撑java:21 + tomcat:10的tomcat镜像拉取；创建tomcat服务目录及资源目录；编写编排脚本，映射端口，时区，挂载宿主资源目录到容器tomcat默认工作目录。复制脚本/war包运行，宿主机通IP映射端口访问。
+
+**MySQL + Tomcat**
+
+创建web-project服务目录，编写脚本整合mysql+tomcat2个子服务；tomcat需访问mysql，理解docker compose为多子服务创建的网络内实现互交访问。
+
+扩展以上maven web项目配置；添加JDBC依赖/数据源配置，数据源地址是什么？初始化数据库？重新打包部署到服务器，创建容器测试。
+
+命令查看tomcat容器内输出，是否启动正常。  
+编写tomcat依赖mysql服务健康监测情况启动配置，重新创建容器测试。  
 
 **nginx/openjdk/mysql**
 
