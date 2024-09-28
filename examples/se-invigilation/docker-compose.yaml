@@ -47,5 +47,5 @@ services:
     environment:
       - bhost=openjdk:8080
     volumes:
-      - ./nginx/html:/usr/share/nginx/html:ro
-      - ./nginx/templates:/etc/nginx/templates
+      - ./html:/usr/share/nginx/html:ro
+      - ./templates:/etc/nginx/templates

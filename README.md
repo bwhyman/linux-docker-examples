@@ -17,7 +17,7 @@ yum-config-manager --add-repo=https://mirrors.huaweicloud.com/docker-ce/linux/ce
 
 使用对外公网IP时，必须遵守国家相关法律，对因违法活动产生一切后果由使用者自负，专业不承担任何法律及连带责任
 
-### 2024.09.24
+### 2024-09-24
 
 过程整理，具体内容参考下面详细说明。
 
@@ -32,7 +32,7 @@ vi基本命令；
 编写docker compose脚本创建容器；  
 注意，删除没用的镜像；删容器加`-v`删除卷；脚本创建的容器用脚本命令删，否则自动创建的网络等资源不会删除；
 
-### 2020.12.31
+### 2020-12-31
 
 昨天有服务器被入侵并植入木马。
 漏洞应为学生在服务器直接安装了redis，且使用默认的无授权访问方式，且未使用Docker。(其实这应该算是开着大门，不能算漏洞了)
@@ -40,7 +40,7 @@ vi基本命令；
 redis应为沙盒使用模式，即服务器内部使用，不应对外暴露端口。应仅暴露80/8080这样的web端口，
 通过nginx反向代理转发请求，MySQL/redis这些服务均应内部使用，不应直接暴露。
 
-### 2019.11.16 - 1.Virtual Machine
+### 2019-11-16 - 1.Virtual Machine
 
 下载最新版VirtualBox  
 创建一个1GB内存+动态15GB磁盘，名为CentOS的虚拟机。注意，放在合适的位置  
@@ -51,7 +51,7 @@ https://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/
 桥接，NAT的区别？  
 从虚拟机切出鼠标/键盘的控制的快捷键？
 
-### 2019.11.16 - 2.CentOS
+### 2019-11-16 - 2.CentOS
 
 运行虚拟机，进入centos安装模式  
 打开网络功能，默认的自动分配IP  
@@ -65,7 +65,7 @@ https://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/
 查看网络是否正常，ping通百度  
 停止操作快捷键？自动补全快捷键？
 
-### 2019.11.16 - 3.SSH
+### 2019-11-16 - 3.SSH
 
 可安装Bitvise SSH Client或其他SSH客户端  
 在VB网络设置中，创建一个宿主机到虚拟机的ssh端口映射  
@@ -74,21 +74,21 @@ https://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/
 如果能够正确进入服务器，则可以在VB中为虚拟机创建一个系统快照作为基础镜像，
 后续操作出问题，可以回滚到当前版本。当然，直接删了虚拟机重来也很方便  
 
-### 2019.11.16 - 4.Don’t Be Scared of the Terminal
+### 2019-11-16 - 4.Don’t Be Scared of the Terminal
 
 基本命令  
 清屏，快速删除命令，列出，进入/退出目录，根目录，home目录，
 创建/删除/重命名目录，查看系统版本，系统内核，cpu/内存占用，磁盘占用。要使用自动补全  
 在/home/用户下，练习创建/删除/重命名目录
 
-### 2019.11.23 - 5.vi
+### 2019-11-23 - 5.vi
 
 vi，Linux经典编辑器  
 在/home/用户下，基于vi创建文件test，编写C语言主函数打印输出hello world  
 掌握最基本的操作指令，编辑模式/删除整行/保存退出/不保存退出  
 在/home/用户下，创建名为code的目录，将文件重命名为hello.c；移动到code目录。即，学习掌握基本的重命名/移动命令
 
-### 2019.11.23 - 6.yum
+### 2019-11-23 - 6.yum
 
 了解linux的软件管理方式  
 yum？repo？rpm？为什么使用yum？基于yum下载的是程序源码还是编译完的二进制文件？  
@@ -102,17 +102,17 @@ gcc安装到哪了？列出安装gcc的位置，各位置的作用，为什么�
 基于yum history卸载(回滚)gcc及全部依赖  
 直接删除非空的test目录。命令参数？ 
 
-### 2019.11.23 - 7.Directory Structure
+### 2019-11-23 - 7.Directory Structure
 
 了解根目录下的，主要目录的功能  
 bin/; dev/; mnt/; etc/; opt/; usr/; lib/; home/; /usr/bin/; /usr/lib/; /usr/libexec/;
 
-### 2019.11.30 - 8.Mount
+### 2019-11-30 - 8.Mount
 
 插入一个fat32/ntfs格式U盘，exfat默认不支持  
 设置虚拟机识别读取。基本命令：列出所有指定格式磁盘；挂载设备，浏览设备内文件；取消挂载  
 
-### 2019.11.26 - 9.bash & chmod
+### 2019-11-26 - 9.bash & chmod
 
 Shell？bash？cat？了解脚本的：基本结构，支持的语句，执行linux命令，运行即可  
 在/home/用户名/test下，基于vi编写一个由bash执行的，打印出/home/用户名/test/下所有文件的脚本  
@@ -123,7 +123,7 @@ Shell？bash？cat？了解脚本的：基本结构，支持的语句，执行li
 chmod命令，r/w/x？3组权限？u/g/o？增加/修改/删除指定角色的指定权限。使用语义参数比数字好记  
 为以上脚本文件，添加创建者具有读写执行权限命令？取消其他用户的读权限？   
 
-### 2019.11.26 - 10.Docker
+### 2019-11-26 - 10.Docker
 
 可以把安装的gcc/openjdk等等都卸载了  
 https://docs.docker.com/engine/docker-overview/  
@@ -137,7 +137,7 @@ https://docs.docker.com/engine/install/centos/
 安装基本工具；添加docker官方仓库，下载docker-ce本身的仓库使用官方地址即可，速度很快。 
 启动docker。开机自动启动docker服务
 
-### 2024.09.23 - 11.Docker Images
+### 2024-09-23 - 11.Docker Images
 
 docker官方镜像仓库国内下载速度较慢，基于vi修改配置文件
 
@@ -165,7 +165,7 @@ Docker基本命令：拉取镜像；列出本地镜像；删除镜像；不建�
 不用拉取hello-world测试    
 Docker仓库？docker镜像仓库？
 
-### 2019.11.26 - 12.Docker Container
+### 2019-11-26 - 12.Docker Container
 
 #### Docker run
 
@@ -191,7 +191,7 @@ exec基本参数：-i；-t。结合/bin/bash使用
 在容器内进入挂载目录，运行HelloWorld，查看输出  
 查看容器内系统版本？查看镜像/容器信息？查看镜像/容器占用？
 
-### 2019.11.26 - 13.FirewallD & SystemD
+### 2019-11-26 - 13.FirewallD & SystemD
 
 CentOS集成的firewall工具。ports？firewall zone？使用默认的zone-public无需声明  
 列出firewall所有打开服务与端口等信息，这一个命令就够所有查询了  
@@ -200,7 +200,7 @@ firewall规则为动态添加，改变规则后需重载，无需重启
 
 SystemD？基本命令：列出开机启动服务；查看指定服务状态；启动/停止/重启/开机启动/开机禁用/服务。基于firewalld或docker操作  
 
-### 2019.11.26 - 14.Docker Web Container
+### 2019-11-26 - 14.Docker Web Container
 
 在宿主机，通过scp命令将本地文件上传到服务器。注意，虚拟机网络为NAT模式，需显式声明ssh映射的端口，但参数与ssh命令不同  
 创建目录，/home/用户名/services/。services下按应用创建目录  
@@ -217,7 +217,7 @@ https://github.com/firewalld/firewalld/issues/461
 停止，并删除此容器。命令写在一行执行  
 注意，服务器的一个端口只能被一个应用/容器监听，反复创建容器会端口冲突  
 
-### 2019.11.26 - 15.Dockerfile
+### 2019-11-26 - 15.Dockerfile
 
 https://docs.docker.com/develop/develop-images/dockerfile_best-practices/  
 https://yeasy.gitbooks.io/docker_practice/image/dockerfile/  
@@ -232,7 +232,7 @@ https://yeasy.gitbooks.io/docker_practice/image/dockerfile/
 基于自定义构建的镜像创建容器。与之前的创建命令相比，需要什么参数？  
 先学习基本镜像构建。其他指令，构建过程优化，后期讨论。不讨论基于容器的镜像构建  
 
-### 2024.09.23 - 16.Docker Compose
+### 2024-09-23 - 16.Docker Compose
 
 Orchestration System？为什么需要Docker Compose？优点？k8s(Kubernetes)？k8s与官方docker compose的适用场景？编写docker compose文件的最大最大特点？docker已默认集成docker compose。  
 https://docs.docker.com/reference/compose-file/   
@@ -266,14 +266,14 @@ idea创建一个基于java:21 + tomcat:10的maven web项目，仅包含测试主
 编写整合nginx/openjdk/mysql的docker compose脚本。  
 重新创建脚本中指定服务的容器。
 
-### 2019.12.08 - 17.Docker Volume
+### 2019-12-08 - 17.Docker Volume
 
 Docker volume？结合镜像/容器理解  
 查询docker image/container/volume磁盘占用？删除容器时，同时删除关联volume参数？  
 删除已无关联volume的命令  
 即，删除系统中已经存在的，但没有关联的volume。当删除镜像/容器但忘记同时删除关联volume时，volume不会自动删除，会一直占用磁盘空间
 
-### 2019.12.27 - 18.Thinking
+### 2019-12-27 - 18.Thinking
 
 可实现的部署方式包括：  
 
@@ -291,21 +291,21 @@ Docker volume？结合镜像/容器理解
 - 频繁的部署，必然需要镜像/容器的维护
   
   # ~  放假啦，下学期见  ~
-  
-  ### 下期预告
-  
-  基于nginx/openjdk/mysql的服务/镜像/容器，由docker-compose统一管理  
-  基于docker-compose构建镜像同时创建容器  
-  设置环境变量参数等，复杂操作  
-  Nginx反向代理/TLS证书等基本设置  
-  容器的顺序启动  
-  健康检测？就用过1次，也没什么用  
-  内核升级  
-  等
-  
-  ### 2020.11.27 - 19.Continuous Deployment
-  
-  #### 基于GitHub Actions的持续部署
+
+### 下期预告
+
+基于nginx/openjdk/mysql的服务/镜像/容器，由docker-compose统一管理  
+基于docker-compose构建镜像同时创建容器  
+设置环境变量参数等，复杂操作  
+Nginx反向代理/TLS证书等基本设置  
+容器的顺序启动  
+健康检测？就用过1次，也没什么用  
+内核升级  
+等
+
+### 2020-11.27 - 19.Continuous Deployment
+
+#### 基于GitHub Actions的持续部署
 
 [持续集成/持续交付/持续部署简介 - 视频](https://mooc1-1.chaoxing.com/nodedetailcontroller/visitnodedetail?courseId=208931964&knowledgeId=326897803)
 
