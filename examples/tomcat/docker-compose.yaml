@@ -1,6 +1,6 @@
 services:
   docker-example:
-    image: tomcat:10.1.18-jre17
+    image: tomcat:10-jre21 # 可以去dockerhub查询具体版本对应的镜像
     volumes:
       - ./webapps/:/usr/local/tomcat/webapps/
       - ./logs/:/usr/local/tomcat/logs/

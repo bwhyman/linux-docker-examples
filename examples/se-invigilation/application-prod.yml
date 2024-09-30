@@ -1,6 +1,4 @@
 spring:
-  config:
-    import: classpath:application-secret.yml
   sql:
     init:
       mode: always
@@ -26,4 +24,11 @@ logging:
       se: info
   pattern:
     console: '%-5level %C.%M[%line] - %msg%n'
+
+dingtalk:
+  appkey: ${dingtalk_appkey}
+  appsecret: ${dingtalk_appsecret}
+  agentid: ${dingtalk_agentid}
+my:
+  secretkey: ${secretkey}
 

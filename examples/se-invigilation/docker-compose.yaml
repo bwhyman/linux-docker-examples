@@ -3,7 +3,7 @@ services:
     image: mysql:8
     restart: always
     ports:
-      - '3306'
+      - '3307:3306'
     volumes:
       - ./mysql/data/:/var/lib/mysql/
     environment:
@@ -33,6 +33,9 @@ services:
       dhost: mysql:3306
       dusername: root
       dpassword: ${mysql_pwd}
+      dingtalk_appkey: ${dingtalk_appkey}
+      dingtalk_appsecret: ${dingtalk_appsecret}
+      dingtalk_agentid: ${dingtalk_appkey}
       secretkey: ${secretkey}
       TZ: Asia/Shanghai
     command: java -jar /home/invigilation-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod
@@ -47,5 +50,5 @@ services:
     environment:
       - bhost=openjdk:8080
     volumes:
-      - ./html:/usr/share/nginx/html:ro
-      - ./templates:/etc/nginx/templates
+      - ./nginx/html:/usr/share/nginx/html:ro
+      - ./nginx/templates:/etc/nginx/templates
